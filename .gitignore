@@ -1,9 +1,9 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-Assets/AssetStoreTools*
+SpaceShooter2D/[Ll]ibrary/
+SpaceShooter2D/[Tt]emp/
+SpaceShooter2D/[Oo]bj/
+SpaceShooter2D/[Bb]uild/
+SpaceShooter2D/[Bb]uilds/
+SpaceShooter2D/Assets/AssetStoreTools*
 
 # Visual Studio cache directory
 .vs/
