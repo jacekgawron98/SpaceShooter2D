@@ -18,11 +18,15 @@ public class PlayerShooting : MonoBehaviour
     void Update()
     {
         Vector2 position = transform.position;
-        if(Input.GetMouseButton(0))
+        if(Input.GetKey(KeyCode.Space))
         {
             if (ReloadTimeRemaining <= 0)
             {
-                Instantiate(Bullet, position + Vector2.up * 0.3f, Quaternion.identity);
+                GameObject bulletObject = Instantiate(Bullet, position + Vector2.up * 0.3f, Quaternion.identity);
+                Bullet bulletController = bulletObject.GetComponent<Bullet>();
+
+                bulletController.Shoot();
+
                 ReloadTimeRemaining = MaxReloadTime;
             }      
         }

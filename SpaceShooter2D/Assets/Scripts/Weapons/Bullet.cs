@@ -10,13 +10,23 @@ public class Bullet : MonoBehaviour
     void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
-        force = 50;
+        force = 1000;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = new Vector2(0,1);
+        if (transform.position.magnitude > 100.0f)
+        {
+            Destroy(gameObject);
+            Debug.Log("Destroyed bullet");
+        }
+            
+    }
+
+    public void Shoot()
+    {
+        Vector2 direction = new Vector2(0, 1);
         rBody.AddForce(direction * force);
     }
 }
