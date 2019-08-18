@@ -28,6 +28,14 @@ public class PlayerController : MonoBehaviour
             GetDamage(enemyBullet.BulletPower);
             Destroy(collision.gameObject);  
         }
+        else
+        {
+            EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+            if(enemy != null)
+            {
+                GetDamage(enemy.TouchDamage);
+            }
+        }
     }
 
     private void GetDamage(float damage)

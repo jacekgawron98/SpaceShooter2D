@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.magnitude > 100.0f)
+        if (transform.position.magnitude > 2.0f)
         {
             Destroy(gameObject);
             Debug.Log("Destroyed bullet");

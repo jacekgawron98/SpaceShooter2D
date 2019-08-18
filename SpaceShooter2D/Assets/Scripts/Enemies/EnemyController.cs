@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
 
     public float MaxHealth;
     private float HealthPoints;
+    public float TouchDamage;
     private float reloadTimeRemaining;
     public float MaxReloadTime;
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         HealthPoints = MaxHealth;
         reloadTimeRemaining = 0;
+        TouchDamage = 10;
     }
 
     // Update is called once per frame
