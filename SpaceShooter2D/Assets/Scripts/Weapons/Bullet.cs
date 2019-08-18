@@ -6,11 +6,13 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D rBody;
     public float force;
+    public float BulletPower;
     // Start is called before the first frame update
     void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
-        force = 1000;
+        force = 100;
+        BulletPower = 5;
     }
 
     // Update is called once per frame
@@ -24,9 +26,8 @@ public class Bullet : MonoBehaviour
             
     }
 
-    public void Shoot()
+    public void Shoot(Vector2 direction)
     {
-        Vector2 direction = new Vector2(0, 1);
         rBody.AddForce(direction * force);
     }
 }

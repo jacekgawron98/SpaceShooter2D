@@ -25,7 +25,7 @@ public class PlayerShooting : MonoBehaviour
                 GameObject bulletObject = Instantiate(Bullet, position + Vector2.up * 0.3f, Quaternion.identity);
                 Bullet bulletController = bulletObject.GetComponent<Bullet>();
 
-                bulletController.Shoot();
+                bulletController.Shoot(new Vector2(0,1));
 
                 ReloadTimeRemaining = MaxReloadTime;
             }      
