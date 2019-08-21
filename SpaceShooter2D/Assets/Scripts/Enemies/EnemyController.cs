@@ -24,6 +24,9 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 position = transform.position;
+        position.y -= 0.001f;
+        transform.position = position;
         Shoot();   
     }
 
@@ -44,6 +47,7 @@ public class EnemyController : MonoBehaviour
         HealthPoints -= damage;
         if(HealthPoints <= 0)
         {
+            ScoreController.Score++;
             Destroy(gameObject);
         }
     }

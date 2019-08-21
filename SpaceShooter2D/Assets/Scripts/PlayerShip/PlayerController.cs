@@ -7,9 +7,14 @@ public class PlayerController : MonoBehaviour
 
     public float MaxHealthPoints;
     private float healthPoints;
+    public int Score;
+    public static float HealthPoints;
+    public static bool IsAlive; 
     // Start is called before the first frame update
     void Start()
     {
+        IsAlive = true;
+        Score = 0;
         MaxHealthPoints = 100;
         healthPoints = MaxHealthPoints;
     }
@@ -17,7 +22,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,9 +46,11 @@ public class PlayerController : MonoBehaviour
     private void GetDamage(float damage)
     {
         healthPoints -= damage;
-        if(healthPoints <= 0)
+        HealthPoints = healthPoints;
+        if (healthPoints <= 0)
         {
-            Destroy(gameObject);
+            IsAlive = false;
+            gameObject.SetActive(false);
         }
     }
 }
