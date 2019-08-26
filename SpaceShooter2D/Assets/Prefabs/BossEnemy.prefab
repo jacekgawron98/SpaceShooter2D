@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4590026865501901417}
   - component: {fileID: 4590026865501901430}
   - component: {fileID: 4590026865501901429}
-  - component: {fileID: 4590026865501901428}
   - component: {fileID: 1623053441081330200}
+  - component: {fileID: 5473065126221116209}
   m_Layer: 11
   m_Name: BossEnemy
   m_TagString: Untagged
@@ -151,20 +151,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.23060858, y: 0.113655984}
   m_EdgeRadius: 0
---- !u!114 &4590026865501901428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590026865501901416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914e9fc33f8185045b1ebd295bedff46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 50
-  TouchDamage: 50
 --- !u!114 &1623053441081330200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +165,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1260106947259253035, guid: 1246e39a932f6384bb3785c83e205bad, type: 3}
   MaxReloadTime: 1
+--- !u!114 &5473065126221116209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590026865501901416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797acbf8cf5087844a8147f29f82785b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 500
+  TouchDamage: 10
+  MovementSpeed: 0.1
+  waypointsObject: {fileID: 2061074248669835724, guid: e879f132304c4f944a8b415241944bab,
+    type: 3}

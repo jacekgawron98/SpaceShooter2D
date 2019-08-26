@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         HealthPoints = MaxHealth;
         LevelController.EnemyCounter++;
+        LevelController.EnemiesOnScreen++;
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class EnemyController : MonoBehaviour
 
         if (transform.position.magnitude > 2.0f)
         {
+            LevelController.EnemiesOnScreen--;
             Destroy(gameObject);
             Debug.Log("Destroyed enemy");
         }
@@ -48,6 +50,7 @@ public class EnemyController : MonoBehaviour
         HealthPoints -= damage;
         if(HealthPoints <= 0)
         {
+            LevelController.EnemiesOnScreen--;
             ScoreController.Score++;
             Destroy(gameObject);
         }

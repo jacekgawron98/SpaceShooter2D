@@ -5,11 +5,14 @@ using UnityEngine;
 public class Level1 : MonoBehaviour
 {
     private bool finished;
-    public bool Finished { get { return finished; } set { finished = value; } }
+    public bool Finished { get { return finished; } }
+    private bool paused;
+    public bool Paused { get { return paused; } set { paused = value; } }
 
     Vector2 screenBounds;
 
-    public GameObject[] enemy;
+    public GameObject[] Enemy;
+    public GameObject BossEnemy;
     float respawnTimeRemaining;
     private short waveCounter;
 
@@ -22,15 +25,27 @@ public class Level1 : MonoBehaviour
         respawnTimeRemaining = 2;
 
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        finished = true;
+        paused = true;
+        finished = false;
 
     }
     // Update is called once per frame
     void Update()
     {
-        if (!finished)
+        if (!paused)
         {
-            RandomEnemiesWave();
+            if (LevelController.EnemyCounter != 10 && !BossController.IsCreated)
+            {
+                RandomEnemiesWave();
+            }
+            else if (LevelController.EnemiesOnScreen == 0 && !BossController.IsCreated)
+            {
+                BossWaveStart(BossEnemy);
+            }
+            else if (BossController.IsCreated && !BossController.IsAlive)
+            {
+                finished = true;
+            }
         }
     }
 
@@ -41,8 +56,8 @@ public class Level1 : MonoBehaviour
             Debug.Log("Enemies: " + LevelController.EnemyCounter);
             float x = Random.Range(0 - screenBounds.x, 0 + screenBounds.x);
             Vector2 position = new Vector2(x, 1.2f);
-            int enemyType = Random.Range(0, enemy.Length);
-            Instantiate(enemy[enemyType], position, Quaternion.identity);
+            int enemyType = Random.Range(0, Enemy.Length);
+            Instantiate(Enemy[enemyType], position, Quaternion.identity);
 
             respawnTimeRemaining = 2;
         }
@@ -50,5 +65,10 @@ public class Level1 : MonoBehaviour
         {
             respawnTimeRemaining -= Time.deltaTime; ;
         }
+    }
+    private void BossWaveStart(GameObject boss)
+    {
+        Vector2 position = new Vector2(0, 1.5f);
+        Instantiate(boss, position, Quaternion.identity);
     }
 }
