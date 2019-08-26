@@ -4,30 +4,31 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject Bullet;
+    
     private Rigidbody2D rBody;
 
     public float MaxHealth;
     private float HealthPoints;
     public float TouchDamage;
-    private float reloadTimeRemaining;
-    public float MaxReloadTime;
+
     // Start is called before the first frame update
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
         HealthPoints = MaxHealth;
-        reloadTimeRemaining = 0;
-        TouchDamage = 10;
+        LevelController.EnemyCounter++;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 position = transform.position;
-        position.y -= 0.001f;
-        transform.position = position;
-        Shoot();   
+        MoveDown();
+
+        if (transform.position.magnitude > 2.0f)
+        {
+            Destroy(gameObject);
+            Debug.Log("Destroyed enemy");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,22 +53,25 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void MoveDown()
     {
-        if(reloadTimeRemaining <= 0 )
-        {
-            GameObject bulletObject = Instantiate(Bullet, transform.position, Quaternion.identity);
-            Bullet bulletController = bulletObject.GetComponent<Bullet>();
+        Vector2 position = transform.position;
+        position.y -= 0.001f;
+        transform.position = position;
+    }
 
-            bulletController.Shoot(new Vector2(0,-1));
+    public void MoveRight()
+    {
+        Vector2 position = transform.position;
+        position.x += 0.001f;
+        transform.position = position;
+    }
 
-            reloadTimeRemaining = MaxReloadTime;
-        }
-        if(reloadTimeRemaining > 0)
-        {
-            reloadTimeRemaining -= Time.deltaTime;
-        }
-
+    public void MoveLeft()
+    {
+        Vector2 position = transform.position;
+        position.x -= 0.001f;
+        transform.position = position;
     }
 
 }

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
         Score = 0;
         MaxHealthPoints = 100;
         healthPoints = MaxHealthPoints;
+        HealthPoints = healthPoints;
     }
 
     // Update is called once per frame

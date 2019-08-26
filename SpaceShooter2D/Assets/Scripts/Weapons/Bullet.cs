@@ -21,7 +21,6 @@ public class Bullet : MonoBehaviour
         if (transform.position.magnitude > 2.0f)
         {
             Destroy(gameObject);
-            Debug.Log("Destroyed bullet");
         }
             
     }
