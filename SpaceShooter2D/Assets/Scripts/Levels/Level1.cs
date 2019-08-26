@@ -22,7 +22,7 @@ public class Level1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        respawnTimeRemaining = 2;
+        respawnTimeRemaining = 1;
 
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         paused = true;
@@ -34,7 +34,7 @@ public class Level1 : MonoBehaviour
     {
         if (!paused)
         {
-            if (LevelController.EnemyCounter != 10 && !BossController.IsCreated)
+            if (LevelController.EnemyCounter <= 50 && !BossController.IsCreated)
             {
                 RandomEnemiesWave();
             }
@@ -59,7 +59,7 @@ public class Level1 : MonoBehaviour
             int enemyType = Random.Range(0, Enemy.Length);
             Instantiate(Enemy[enemyType], position, Quaternion.identity);
 
-            respawnTimeRemaining = 2;
+            respawnTimeRemaining = 1;
         }
         else
         {

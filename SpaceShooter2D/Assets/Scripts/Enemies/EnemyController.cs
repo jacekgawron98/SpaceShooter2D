@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
     public float MaxHealth;
     private float HealthPoints;
     public float TouchDamage;
+    public int GivenScore;
+    public float MovementSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +53,7 @@ public class EnemyController : MonoBehaviour
         if(HealthPoints <= 0)
         {
             LevelController.EnemiesOnScreen--;
-            ScoreController.Score++;
+            ScoreController.Score+=GivenScore;
             Destroy(gameObject);
         }
     }
@@ -59,7 +61,7 @@ public class EnemyController : MonoBehaviour
     public void MoveDown()
     {
         Vector2 position = transform.position;
-        position.y -= 0.001f;
+        position.y -= 0.001f * MovementSpeed ;
         transform.position = position;
     }
 

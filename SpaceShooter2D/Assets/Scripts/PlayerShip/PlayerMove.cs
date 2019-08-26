@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MovementSpeed = 10;
+        MovementSpeed = 5;
         rBody = gameObject.GetComponent<Rigidbody2D>();
     }
 

@@ -180,5 +180,6 @@ MonoBehaviour:
   MaxHealth: 500
   TouchDamage: 10
   MovementSpeed: 0.1
+  GivenScore: 5000
   waypointsObject: {fileID: 2061074248669835724, guid: e879f132304c4f944a8b415241944bab,
     type: 3}

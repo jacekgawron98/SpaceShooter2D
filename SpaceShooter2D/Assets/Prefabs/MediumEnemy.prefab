@@ -116,9 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914e9fc33f8185045b1ebd295bedff46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 1260106947259253035, guid: 1246e39a932f6384bb3785c83e205bad, type: 3}
   MaxHealth: 25
   TouchDamage: 20
+  GivenScore: 100
+  MovementSpeed: 5
 --- !u!61 &3757004558591684913
 BoxCollider2D:
   m_ObjectHideFlags: 0

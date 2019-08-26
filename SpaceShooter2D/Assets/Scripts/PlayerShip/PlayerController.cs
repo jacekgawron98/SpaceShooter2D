@@ -7,14 +7,12 @@ public class PlayerController : MonoBehaviour
 
     public float MaxHealthPoints;
     private float healthPoints;
-    public int Score;
     public static float HealthPoints;
     public static bool IsAlive; 
     // Start is called before the first frame update
     void Start()
     {
         IsAlive = true;
-        Score = 0;
         MaxHealthPoints = 100;
         healthPoints = MaxHealthPoints;
         HealthPoints = healthPoints;
@@ -36,9 +34,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            Debug.Log("aaaa");
             EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
             if(enemy != null)
             {
+                Debug.Log("TOUCHED");
                 GetDamage(enemy.TouchDamage);
             }
         }

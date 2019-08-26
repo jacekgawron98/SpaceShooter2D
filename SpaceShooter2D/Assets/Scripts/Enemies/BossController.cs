@@ -10,6 +10,7 @@ public class BossController : MonoBehaviour
     private float HealthPoints;
     public float TouchDamage;
     public float MovementSpeed;
+    public int GivenScore;
 
     private Vector2 readyPosition;
     private bool isOnPosition;
@@ -53,12 +54,6 @@ public class BossController : MonoBehaviour
         {
             moveAround();
         }
-
-        if (transform.position.magnitude > 2.0f)
-        {
-            LevelController.EnemiesOnScreen--;
-            Destroy(gameObject);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,7 +73,7 @@ public class BossController : MonoBehaviour
         if (HealthPoints <= 0)
         {
             LevelController.EnemiesOnScreen--;
-            ScoreController.Score++;
+            ScoreController.Score+=GivenScore;
             IsAlive = false;
             Destroy(gameObject);
         }
