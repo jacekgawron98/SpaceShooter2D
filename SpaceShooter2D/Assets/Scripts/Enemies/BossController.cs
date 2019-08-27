@@ -78,7 +78,7 @@ public class BossController : MonoBehaviour
             ScoreController.Score+=GivenScore;
             IsAlive = false;
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject,10f);
+            Destroy(gameObject);
         }
     }
 
