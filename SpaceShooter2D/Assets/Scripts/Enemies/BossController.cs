@@ -22,6 +22,8 @@ public class BossController : MonoBehaviour
     List<Transform> waypoints = new List<Transform>();
     int currentWaypoint = 0;
 
+    public ParticleSystem explosionEffect;
+
     //START
     void Start()
     {
@@ -75,7 +77,8 @@ public class BossController : MonoBehaviour
             LevelController.EnemiesOnScreen--;
             ScoreController.Score+=GivenScore;
             IsAlive = false;
-            Destroy(gameObject);
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject,10f);
         }
     }
 

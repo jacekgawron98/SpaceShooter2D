@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     public float MaxHealthPoints;
     private float healthPoints;
     public static float HealthPoints;
-    public static bool IsAlive; 
+    public static bool IsAlive;
+    public ParticleSystem explosionEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,10 +48,12 @@ public class PlayerController : MonoBehaviour
     private void GetDamage(float damage)
     {
         healthPoints -= damage;
+        healthPoints = Mathf.Clamp(healthPoints, 0, MaxHealthPoints);
         HealthPoints = healthPoints;
         if (healthPoints <= 0)
         {
             IsAlive = false;
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
         }
     }

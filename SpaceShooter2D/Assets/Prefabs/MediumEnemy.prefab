@@ -120,6 +120,8 @@ MonoBehaviour:
   TouchDamage: 20
   GivenScore: 100
   MovementSpeed: 5
+  explosionEffect: {fileID: 2719551550796289014, guid: a489d3ff61023704389b875577c0c95c,
+    type: 3}
 --- !u!61 &3757004558591684913
 BoxCollider2D:
   m_ObjectHideFlags: 0

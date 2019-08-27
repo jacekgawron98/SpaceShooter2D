@@ -38,6 +38,7 @@ public class LevelController : MonoBehaviour
             InfoText.GetComponent<TextMeshProUGUI>().text = "Game Over Press ESCAPE to restart";
             if(Input.GetKeyDown(KeyCode.Escape))
             {
+                BossController.ResetStaticValues();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }

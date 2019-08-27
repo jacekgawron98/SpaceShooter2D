@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public float TouchDamage;
     public int GivenScore;
     public float MovementSpeed;
+    public ParticleSystem explosionEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,6 @@ public class EnemyController : MonoBehaviour
         {
             LevelController.EnemiesOnScreen--;
             Destroy(gameObject);
-            Debug.Log("Destroyed enemy");
         }
     }
 
@@ -42,7 +42,6 @@ public class EnemyController : MonoBehaviour
         if (bulletCollision != null)
         {
             GetDamage(bulletCollision.BulletPower);
-            Debug.Log("Enemy health: " + HealthPoints + "/" + MaxHealth);
             Destroy(bulletCollision.gameObject);
         }
     }
@@ -54,6 +53,7 @@ public class EnemyController : MonoBehaviour
         {
             LevelController.EnemiesOnScreen--;
             ScoreController.Score+=GivenScore;
+            Instantiate(explosionEffect,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
     }

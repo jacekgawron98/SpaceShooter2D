@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealthPoints: 0
+  explosionEffect: {fileID: 2719551550796289014, guid: a489d3ff61023704389b875577c0c95c,
+    type: 3}
 --- !u!61 &391815421
 BoxCollider2D:
   m_ObjectHideFlags: 0

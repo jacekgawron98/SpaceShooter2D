@@ -183,3 +183,5 @@ MonoBehaviour:
   GivenScore: 5000
   waypointsObject: {fileID: 2061074248669835724, guid: e879f132304c4f944a8b415241944bab,
     type: 3}
+  explosionEffect: {fileID: 8226971417640054295, guid: 373638ede4264074e8dc95b259822d9d,
+    type: 3}
