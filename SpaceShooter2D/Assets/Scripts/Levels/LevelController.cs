@@ -15,6 +15,7 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BossController.ResetStaticValues();
         EnemyCounter = 0;
         EnemiesOnScreen = 0;
         Screen.fullScreen = false;         
@@ -38,7 +39,6 @@ public class LevelController : MonoBehaviour
             InfoText.GetComponent<TextMeshProUGUI>().text = "Game Over Press ESCAPE to restart";
             if(Input.GetKeyDown(KeyCode.Escape))
             {
-                BossController.ResetStaticValues();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
@@ -49,7 +49,7 @@ public class LevelController : MonoBehaviour
             InfoText.GetComponent<TextMeshProUGUI>().text = "You won Press ESCAPE to return to main menu";
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                BossController.ResetStaticValues();
+                
                 SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
             }
         }

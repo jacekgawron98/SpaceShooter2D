@@ -28,6 +28,15 @@ public class EnemyController : MonoBehaviour
     {
         MoveDown();
 
+        if (HealthPoints <= 0)
+        {
+            LevelController.EnemiesOnScreen--;
+            ScoreController.Score += GivenScore;
+            Camera.main.GetComponent<PowerUpsGenerator>().GeneratePowerUp(transform);
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
         if (transform.position.magnitude > 2.0f)
         {
             LevelController.EnemiesOnScreen--;
@@ -35,7 +44,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Bullet bulletCollision = collision.gameObject.GetComponent<Bullet>();
 
@@ -49,13 +58,6 @@ public class EnemyController : MonoBehaviour
     void GetDamage(float damage)
     {
         HealthPoints -= damage;
-        if(HealthPoints <= 0)
-        {
-            LevelController.EnemiesOnScreen--;
-            ScoreController.Score+=GivenScore;
-            Instantiate(explosionEffect,transform.position,Quaternion.identity);
-            Destroy(gameObject);
-        }
     }
 
     public void MoveDown()

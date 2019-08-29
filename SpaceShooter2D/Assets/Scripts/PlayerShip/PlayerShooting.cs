@@ -6,11 +6,13 @@ public class PlayerShooting : MonoBehaviour
 {
 
     public GameObject Bullet;
+    public int NumberOfBullets;
     public float MaxReloadTime;
     private float ReloadTimeRemaining;
     // Start is called before the first frame update
     void Start()
     {
+        NumberOfBullets = Mathf.Clamp(NumberOfBullets, 1, 5);
         ReloadTimeRemaining = 0;
     }
 
@@ -22,17 +24,37 @@ public class PlayerShooting : MonoBehaviour
         {
             if (ReloadTimeRemaining <= 0)
             {
-                GameObject bulletObject = Instantiate(Bullet, position + Vector2.up * 0.3f, Quaternion.identity);
-                Bullet bulletController = bulletObject.GetComponent<Bullet>();
+                float offset = 0.02f * (NumberOfBullets - 1);
 
-                bulletController.Shoot(new Vector2(0,1));
+                List<GameObject> bulletObjects = new List<GameObject>();
+                List<Bullet> bulletControllers = new List<Bullet>();
+
+                for(int i=0;i<NumberOfBullets;i++)
+                {
+                    Vector2 bulletPos = new Vector2(position.x - offset + (0.04f * i) , position.y+0.1f);
+                    Debug.Log(bulletPos.x);
+                    bulletObjects.Add(Instantiate(Bullet, bulletPos, Quaternion.identity));
+                    bulletControllers.Add(bulletObjects[i].GetComponent<Bullet>());
+                }
+                
+                foreach(Bullet bullet in bulletControllers)
+                {
+                    bullet.Shoot(new Vector2(0, 1));
+                }
 
                 ReloadTimeRemaining = MaxReloadTime;
             }      
         }
         if (ReloadTimeRemaining > 0)
             ReloadTimeRemaining -= Time.deltaTime;
+    }
 
-        //Debug.Log(ReloadTimeRemaining);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        AddBulletPowerUp powerUp = collision.gameObject.GetComponent<AddBulletPowerUp>();
+        if(powerUp != null)
+        {
+            powerUp.AddBullet(gameObject);
+        }
     }
 }

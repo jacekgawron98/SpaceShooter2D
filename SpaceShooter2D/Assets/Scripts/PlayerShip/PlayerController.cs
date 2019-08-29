@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         IsAlive = true;
-        MaxHealthPoints = 100;
         healthPoints = MaxHealthPoints;
         HealthPoints = healthPoints;
     }
@@ -33,15 +32,14 @@ public class PlayerController : MonoBehaviour
             GetDamage(enemyBullet.BulletPower);
             Destroy(collision.gameObject);  
         }
-        else
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+        if (enemy != null)
         {
-            Debug.Log("aaaa");
-            EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
-            if(enemy != null)
-            {
-                Debug.Log("TOUCHED");
-                GetDamage(enemy.TouchDamage);
-            }
+            Destroy(enemy.gameObject);
+            Death();
         }
     }
 
@@ -52,9 +50,14 @@ public class PlayerController : MonoBehaviour
         HealthPoints = healthPoints;
         if (healthPoints <= 0)
         {
-            IsAlive = false;
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
+            Death();
         }
+    }
+
+    private void Death()
+    {
+        IsAlive = false;
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
     }
 }

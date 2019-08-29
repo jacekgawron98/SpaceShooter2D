@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    Vector2 screenBounds;
     Rigidbody2D rBody;
     public float force;
     public float BulletPower;
     // Start is called before the first frame update
     void Awake()
     {
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         rBody = GetComponent<Rigidbody2D>();
         force = 100;
         BulletPower = 5;
@@ -18,7 +20,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.magnitude > 1.0f)
+        if (transform.position.y >= screenBounds.y)
         {
             Destroy(gameObject);
         }

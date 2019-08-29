@@ -53,7 +53,6 @@ public class Level1 : MonoBehaviour
     {
         if (respawnTimeRemaining <= 0)
         {
-            Debug.Log("Enemies: " + LevelController.EnemyCounter);
             float x = Random.Range(0 - screenBounds.x, 0 + screenBounds.x);
             Vector2 position = new Vector2(x, 1.2f);
             int enemyType = Random.Range(0, Enemy.Length);
