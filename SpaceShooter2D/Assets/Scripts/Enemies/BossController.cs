@@ -8,7 +8,6 @@ public class BossController : MonoBehaviour
 
     public float MaxHealth;
     private float HealthPoints;
-    public float TouchDamage;
     public float MovementSpeed;
     public int GivenScore;
 

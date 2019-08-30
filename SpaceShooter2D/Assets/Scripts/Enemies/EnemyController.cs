@@ -9,7 +9,6 @@ public class EnemyController : MonoBehaviour
 
     public float MaxHealth;
     private float HealthPoints;
-    public float TouchDamage;
     public int GivenScore;
     public float MovementSpeed;
     public ParticleSystem explosionEffect;

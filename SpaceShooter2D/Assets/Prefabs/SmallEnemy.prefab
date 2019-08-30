@@ -144,8 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914e9fc33f8185045b1ebd295bedff46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
-  TouchDamage: 10
+  MaxHealth: 4
   GivenScore: 50
   MovementSpeed: 10
   explosionEffect: {fileID: 2719551550796289014, guid: a489d3ff61023704389b875577c0c95c,

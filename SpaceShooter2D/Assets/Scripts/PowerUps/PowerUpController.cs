@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
-    private float remainingTime;
+    private Vector2 screenBounds;
     // Start is called before the first frame update
     void Start()
     {
-        remainingTime = 3f;
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(remainingTime <= 0)
+        Vector2 position = transform.position;
+        position.y -= 0.3f * Time.deltaTime;
+        transform.position = position;
+        if (transform.position.y <= -screenBounds.y) 
         {
             Destroy(gameObject);
-        }
-        else
-        {
-            remainingTime -= Time.deltaTime;
         }
     }
 }
