@@ -638,7 +638,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bab867373eb2249ad1660c5fc6e2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUp: {fileID: 5556121401673193392, guid: 71941bb60e44b67478ec207a5e3e02d7, type: 3}
+  PowerUpsList:
+  - rarity: 50
+    powerUpType: {fileID: 5556121401673193392, guid: 71941bb60e44b67478ec207a5e3e02d7,
+      type: 3}
+  - rarity: 50
+    powerUpType: {fileID: 4845738617085534029, guid: 6c5efca444018324da18fee635f3b06d,
+      type: 3}
+  DropChance: 40
 --- !u!1 &841251723
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,31 +905,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1596601376 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3271671896478549118, guid: 88579c72a4c14ba478c3198ba43e2e23,
-    type: 3}
-  m_PrefabInstance: {fileID: 3271671896517130859}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1596601379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596601376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46da513c07792d1428f796cef10b5ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy:
-  - {fileID: 4803386272988737970, guid: 8b11de9f0507d7740a122bf307a251ec, type: 3}
-  - {fileID: 2252488549721142420, guid: 607b3781fcecf6541af5e018d49589d9, type: 3}
-  BossEnemy: {fileID: 4590026865501901416, guid: fecd43e0ee3f60b4eb909215534f5eb7,
-    type: 3}
 --- !u!1 &1683579594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1124,7 @@ PrefabInstance:
     - target: {fileID: 2841112163731539630, guid: 9a3725c780fe85a4aa9f738231e8845a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2841112163731539630, guid: 9a3725c780fe85a4aa9f738231e8845a,
         type: 3}

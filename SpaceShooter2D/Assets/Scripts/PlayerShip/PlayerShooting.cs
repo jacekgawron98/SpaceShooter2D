@@ -49,7 +49,6 @@ public class PlayerShooting : MonoBehaviour
                 for (int i = 0; i < NumberOfBullets; i++)
                 {
                     Vector2 bulletPos = new Vector2(transform.position.x - offset + (0.04f * i), transform.position.y + 0.1f);
-                    Debug.Log(bulletPos.x);
                     bulletObjects.Add(Instantiate(Bullet, bulletPos, Quaternion.identity));
                     bulletControllers.Add(bulletObjects[i].GetComponent<Bullet>());
                 }

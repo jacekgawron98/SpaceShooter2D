@@ -10,12 +10,15 @@ public class EnemyController : MonoBehaviour
     public float MaxHealth;
     private float HealthPoints;
     public int GivenScore;
-    public float MovementSpeed;
     public ParticleSystem explosionEffect;
+    private Vector2 screenBounds;
+    public float MovementSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
         rBody = GetComponent<Rigidbody2D>();
         HealthPoints = MaxHealth;
         LevelController.EnemyCounter++;
@@ -25,8 +28,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveDown();
-
         if (HealthPoints <= 0)
         {
             LevelController.EnemiesOnScreen--;
@@ -36,7 +37,7 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (transform.position.magnitude > 2.0f)
+        if (transform.position.y <= -screenBounds.y - 1)
         {
             LevelController.EnemiesOnScreen--;
             Destroy(gameObject);
@@ -57,27 +58,6 @@ public class EnemyController : MonoBehaviour
     void GetDamage(float damage)
     {
         HealthPoints -= damage;
-    }
-
-    public void MoveDown()
-    {
-        Vector2 position = transform.position;
-        position.y -= 0.001f * MovementSpeed ;
-        transform.position = position;
-    }
-
-    public void MoveRight()
-    {
-        Vector2 position = transform.position;
-        position.x += 0.001f;
-        transform.position = position;
-    }
-
-    public void MoveLeft()
-    {
-        Vector2 position = transform.position;
-        position.x -= 0.001f;
-        transform.position = position;
     }
 
 }

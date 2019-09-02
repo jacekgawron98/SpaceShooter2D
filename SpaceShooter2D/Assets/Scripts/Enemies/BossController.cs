@@ -14,9 +14,6 @@ public class BossController : MonoBehaviour
     private Vector2 readyPosition;
     private bool isOnPosition;
 
-    public static bool IsAlive;
-    public static bool IsCreated;
-
     public GameObject waypointsObject;
     List<Transform> waypoints = new List<Transform>();
     int currentWaypoint = 0;
@@ -26,9 +23,6 @@ public class BossController : MonoBehaviour
     //START
     void Start()
     {
-        IsCreated = true;
-        IsAlive = true;
-
         isOnPosition = false;
 
         readyPosition = new Vector2(0,0.7f);
@@ -75,7 +69,6 @@ public class BossController : MonoBehaviour
         {
             LevelController.EnemiesOnScreen--;
             ScoreController.Score+=GivenScore;
-            IsAlive = false;
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -102,11 +95,5 @@ public class BossController : MonoBehaviour
             }
         }
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypoint].position, Time.deltaTime * MovementSpeed);
-    }
-
-    public static void ResetStaticValues()
-    {
-        IsAlive = false;
-        IsCreated = false;
     }
 }

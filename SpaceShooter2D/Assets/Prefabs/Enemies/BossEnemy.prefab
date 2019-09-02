@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5473065126221116209}
   m_Layer: 11
   m_Name: BossEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 500
-  TouchDamage: 10
   MovementSpeed: 0.1
   GivenScore: 5000
   waypointsObject: {fileID: 2061074248669835724, guid: e879f132304c4f944a8b415241944bab,

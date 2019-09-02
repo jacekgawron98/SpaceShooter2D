@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -6723071806978584209}
   m_Layer: 11
   m_Name: SmallEnemy
-  m_TagString: Smallenemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,9 +146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 4
   GivenScore: 50
-  MovementSpeed: 10
   explosionEffect: {fileID: 2719551550796289014, guid: a489d3ff61023704389b875577c0c95c,
     type: 3}
+  MovementSpeed: 2
 --- !u!95 &4803386272988737971
 Animator:
   serializedVersion: 3

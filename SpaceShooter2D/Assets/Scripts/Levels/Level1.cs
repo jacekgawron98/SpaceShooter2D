@@ -4,70 +4,55 @@ using UnityEngine;
 
 public class Level1 : MonoBehaviour
 {
-    private bool finished;
-    public bool Finished { get { return finished; } }
     private bool paused;
-    public bool Paused { get { return paused; } set { paused = value; } }
+    public List<GameObject> Waves;
+    private int waveCounter;
+    public int EnemiesCounter;
 
-    Vector2 screenBounds;
-
-    public GameObject[] Enemy;
-    public GameObject BossEnemy;
-    float respawnTimeRemaining;
-    private short waveCounter;
-
-    private float waveRemainingTime;
-    private bool isNextWave;
-
+    GameObject randomWave;
     // Start is called before the first frame update
     void Start()
     {
-        respawnTimeRemaining = 1;
-
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        paused = true;
-        finished = false;
-
+        EnemiesCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        waveCounter = 0;
     }
+
     // Update is called once per frame
     void Update()
     {
+        paused = LevelController.Paused;
+
         if (!paused)
         {
-            if (LevelController.EnemyCounter <= 50 && !BossController.IsCreated)
+            if (waveCounter == 0 && EnemiesCounter == 0)
             {
-                RandomEnemiesWave();
+                
+                randomWave = Instantiate(Waves[waveCounter]);
+                EnemiesCounter++;
             }
-            else if (LevelController.EnemiesOnScreen == 0 && !BossController.IsCreated)
+            else if (waveCounter == 0)
             {
-                BossWaveStart(BossEnemy);
+                if (randomWave.GetComponent<RandomEnemiesWave>().isFinished)
+                {
+                    EnemiesCounter--;
+                    waveCounter++;
+                }                
             }
-            else if (BossController.IsCreated && !BossController.IsAlive)
+            else
             {
-                finished = true;
+                EnemiesCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+                if (EnemiesCounter == 0)
+                {
+                    if (waveCounter == Waves.Count)
+                    {
+                        LevelController.Finished = true;
+                        return;
+                    }
+                    waveCounter++;
+                    Instantiate(Waves[waveCounter - 1]);
+                }
             }
         }
     }
 
-    private void RandomEnemiesWave()
-    {
-        if (respawnTimeRemaining <= 0)
-        {
-            float x = Random.Range(0 - screenBounds.x, 0 + screenBounds.x);
-            Vector2 position = new Vector2(x, 1.2f);
-            int enemyType = Random.Range(0, Enemy.Length);
-            Instantiate(Enemy[enemyType], position, Quaternion.identity);
-
-            respawnTimeRemaining = 1;
-        }
-        else
-        {
-            respawnTimeRemaining -= Time.deltaTime; ;
-        }
-    }
-    private void BossWaveStart(GameObject boss)
-    {
-        Vector2 position = new Vector2(0, 1.5f);
-        Instantiate(boss, position, Quaternion.identity);
-    }
 }
