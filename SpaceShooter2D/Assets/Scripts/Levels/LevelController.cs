@@ -12,14 +12,18 @@ public class LevelController : MonoBehaviour
     public static bool Paused;
 
     public GameObject Level;
-    public GameObject InfoText;
+    public GameObject InfoPanel;
     public GameObject HpText;
+    public GameObject CountdownText;
     public static int EnemyCounter;
     public static int EnemiesOnScreen;
+
+    private float StartCountdown;
 
     private void Awake()
     {
         Screen.fullScreen = false;
+        InfoPanel.SetActive(false);
         EnemyCounter = 0;
         EnemiesOnScreen = 0;
     }
@@ -30,6 +34,7 @@ public class LevelController : MonoBehaviour
         Debug.Log("LEVEL: " + ApplicationManager.selectedLevel);
         SelectLevel();
 
+        StartCountdown = 5;
         Paused = true;
         Finished = false;
     }
@@ -39,26 +44,39 @@ public class LevelController : MonoBehaviour
     {
         HpText.GetComponent<TextMeshProUGUI>().text = "HP: " + PlayerController.HealthPoints;
         
-        if(Input.GetKeyDown(KeyCode.Return) && Paused)
+        if(StartCountdown <= 0 && Paused && !Finished)
         {
-            InfoText.GetComponent<TextMeshProUGUI>().text = "";
-            Paused= false;
+            CountdownText.GetComponent<TextMeshProUGUI>().text = "";
+            Paused = false;
+        }
+        else if(Paused && !Finished)
+        {
+            if (StartCountdown < 1)
+                CountdownText.GetComponent<TextMeshProUGUI>().text = "GO!";
+            else if (StartCountdown > 4)
+                CountdownText.GetComponent<TextMeshProUGUI>().text = "READY?";
+            else
+                CountdownText.GetComponent<TextMeshProUGUI>().text = ((int)StartCountdown).ToString();
+
+            StartCountdown -= Time.deltaTime;
         }
 
         if (!PlayerController.IsAlive)
         {
             Paused = true;
-            InfoText.GetComponent<TextMeshProUGUI>().text = "Game Over Press ESCAPE to restart";
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            InfoPanel.SetActive(true);
+
+            TextMeshProUGUI infoText = InfoPanel.transform.Find("InfoText").gameObject.GetComponent<TextMeshProUGUI>();
+            infoText.text = "GAME OVER";
         }
 
         if(Finished)
         {
             Paused = true;
-            InfoText.GetComponent<TextMeshProUGUI>().text = "You won Press ESCAPE to return to main menu";
+            InfoPanel.SetActive(true);
+            TextMeshProUGUI infoText = InfoPanel.transform.Find("InfoText").gameObject.GetComponent<TextMeshProUGUI>();
+            infoText.text = "YOU WON! Score: " + ScoreController.Score;
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 

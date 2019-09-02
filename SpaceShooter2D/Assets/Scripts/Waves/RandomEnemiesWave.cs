@@ -36,7 +36,6 @@ public class RandomEnemiesWave : MonoBehaviour
             {
                 respawnTimeRemaining -= Time.deltaTime; ;
             }
-            Debug.Log(waveRamainingTime);
             waveRamainingTime -= Time.deltaTime;
         }
         else
