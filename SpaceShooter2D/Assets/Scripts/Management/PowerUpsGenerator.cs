@@ -34,6 +34,7 @@ public class PowerUpsGenerator : MonoBehaviour
                     break;
                 }
                 dropsRarityTotal -= PowerUpsList[i].rarity;
+                itemRandom = Random.Range(0, dropsRarityTotal);
             }
         }
         else

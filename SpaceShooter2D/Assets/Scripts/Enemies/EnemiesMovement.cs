@@ -5,12 +5,14 @@ using UnityEngine;
 public class EnemiesMovement : MonoBehaviour
 {
     public float MovementSpeed;
-    public List<Transform> waypointsList;
+    public GameObject Waypoints;
+    private List<Transform> waypointsList;
     private int currentWaypoint;
     // Start is called before the first frame update
     void Start()
     {
-
+        waypointsList = new List<Transform>();
+        GetWaypoints();
         MovementSpeed = GetComponent<EnemyController>().MovementSpeed;
     }
 
@@ -22,7 +24,7 @@ public class EnemiesMovement : MonoBehaviour
 
     public void MoveOnWayPoints()
     {
-        if(currentWaypoint < waypointsList.Count)
+        if (currentWaypoint < waypointsList.Count)
         {
             transform.position = Vector2.MoveTowards(transform.position, waypointsList[currentWaypoint].transform.position, Time.deltaTime * MovementSpeed);
             if (Vector2.Distance(waypointsList[currentWaypoint].transform.position, transform.position) < 0.01f)
@@ -30,6 +32,14 @@ public class EnemiesMovement : MonoBehaviour
                 currentWaypoint++;
             }
         }
-        
+
+    }
+
+    void GetWaypoints()
+    {
+        foreach (Transform child in Waypoints.transform)
+        {
+            waypointsList.Add(child);
+        }
     }
 }

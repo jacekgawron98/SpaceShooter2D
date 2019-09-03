@@ -13,7 +13,6 @@ public class LevelController : MonoBehaviour
 
     public GameObject Level;
     public GameObject InfoPanel;
-    public GameObject HpText;
     public GameObject CountdownText;
     public static int EnemyCounter;
     public static int EnemiesOnScreen;
@@ -42,7 +41,6 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HpText.GetComponent<TextMeshProUGUI>().text = "HP: " + PlayerController.HealthPoints;
         
         if(StartCountdown <= 0 && Paused && !Finished)
         {

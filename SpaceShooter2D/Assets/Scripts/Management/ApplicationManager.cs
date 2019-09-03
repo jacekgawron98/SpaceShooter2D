@@ -8,6 +8,6 @@ namespace Assets.Scripts.Management
 {
     public class ApplicationManager
     {
-        public static int selectedLevel = 1;
+        public static int selectedLevel = 2;
     }
 }
