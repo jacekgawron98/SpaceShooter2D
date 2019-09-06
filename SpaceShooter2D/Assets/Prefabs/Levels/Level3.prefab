@@ -43,3 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329a1f7ef64c2dc4baf45110d1d3a40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waves:
+  - {fileID: 4748383847405282953, guid: d6f6272a1ebcf4a4194c5ccd3e1a8771, type: 3}
+  - {fileID: 4076082255594952716, guid: 05bde948cca29344bb3d51fe198f2bfe, type: 3}
+  - {fileID: 8633280132411570080, guid: a1f478992df6e1f46a5f4019975716e1, type: 3}
+  - {fileID: 165863561055367942, guid: 7e9d254db28fffa468d61d1ff83451dc, type: 3}
+  EnemiesCounter: 0

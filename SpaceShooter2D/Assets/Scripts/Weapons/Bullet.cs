@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y >= screenBounds.y)
+        if (transform.position.y >= screenBounds.y || transform.position.y < -screenBounds.y)
         {
             Destroy(gameObject);
         }

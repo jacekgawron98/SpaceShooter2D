@@ -4,15 +4,55 @@ using UnityEngine;
 
 public class Level3 : MonoBehaviour
 {
+    private bool paused;
+    public List<GameObject> Waves;
+    private int waveCounter;
+    private int enemiesCounter;
+
+    GameObject wave;
+    RandomEnemiesWave randomWave;
+    private bool isRandomWave;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemiesCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        waveCounter = 0;
+        isRandomWave = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("LEVEL 3");
+        paused = LevelController.Paused;
+        if (!paused)
+        {
+            if(isRandomWave)
+            {
+                if (randomWave.GetComponent<RandomEnemiesWave>().isFinished)
+                {
+                    isRandomWave = false;
+                }
+            }
+            else
+            {
+                enemiesCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+                if (enemiesCounter == 0)
+                {
+                    if (waveCounter == Waves.Count)
+                    {
+                        LevelController.Finished = true;
+                        return;
+                    }
+                    waveCounter++;
+                    wave = Instantiate(Waves[waveCounter - 1]);
+                    randomWave = wave.GetComponent<RandomEnemiesWave>();
+                    if(randomWave != null)
+                    {
+                        isRandomWave = true;
+                    }
+                }
+            }
+        }
     }
+
 }

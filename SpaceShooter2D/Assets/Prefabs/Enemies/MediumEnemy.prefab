@@ -116,10 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914e9fc33f8185045b1ebd295bedff46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 25
+  MaxHealth: 15
   GivenScore: 100
   explosionEffect: {fileID: 2719551550796289014, guid: a489d3ff61023704389b875577c0c95c,
     type: 3}
+  MovementSpeed: 1
 --- !u!61 &3757004558591684913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,3 +182,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1260106947259253035, guid: 1246e39a932f6384bb3785c83e205bad, type: 3}
   MaxReloadTime: 0.5
+  AutoShooting: 0

@@ -7,41 +7,36 @@ public class Level1 : MonoBehaviour
     private bool paused;
     public List<GameObject> Waves;
     private int waveCounter;
-    public int EnemiesCounter;
+    private int enemiesCounter;
 
-    GameObject randomWave;
+    GameObject wave;
+    RandomEnemiesWave randomWave;
+    private bool isRandomWave;
     // Start is called before the first frame update
     void Start()
     {
-        EnemiesCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        enemiesCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
         waveCounter = 0;
+        isRandomWave = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         paused = LevelController.Paused;
-
         if (!paused)
         {
-            if (waveCounter == 0 && EnemiesCounter == 0)
-            {
-                
-                randomWave = Instantiate(Waves[waveCounter]);
-                EnemiesCounter++;
-            }
-            else if (waveCounter == 0)
+            if (isRandomWave)
             {
                 if (randomWave.GetComponent<RandomEnemiesWave>().isFinished)
                 {
-                    EnemiesCounter--;
-                    waveCounter++;
-                }                
+                    isRandomWave = false;
+                }
             }
             else
             {
-                EnemiesCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
-                if (EnemiesCounter == 0)
+                enemiesCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+                if (enemiesCounter == 0)
                 {
                     if (waveCounter == Waves.Count)
                     {
@@ -49,7 +44,12 @@ public class Level1 : MonoBehaviour
                         return;
                     }
                     waveCounter++;
-                    Instantiate(Waves[waveCounter - 1]);
+                    wave = Instantiate(Waves[waveCounter - 1]);
+                    randomWave = wave.GetComponent<RandomEnemiesWave>();
+                    if (randomWave != null)
+                    {
+                        isRandomWave = true;
+                    }
                 }
             }
         }

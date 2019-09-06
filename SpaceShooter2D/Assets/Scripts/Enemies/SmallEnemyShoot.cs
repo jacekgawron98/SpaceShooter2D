@@ -8,6 +8,7 @@ public class SmallEnemyShoot : MonoBehaviour
 
     private float reloadTimeRemaining;
     public float MaxReloadTime;
+    public bool AutoShooting = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,22 @@ public class SmallEnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shoot();
+        if(AutoShooting)
+        {
+            Shoot();
+        }
+        else
+        {
+            RaycastHit2D raycast = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y-0.1f), new Vector2(0, -1));
+            if(raycast.collider != null)
+            {
+                PlayerController player = raycast.collider.gameObject.GetComponent<PlayerController>();
+                if(player != null)
+                {
+                    Shoot();
+                }
+            }
+        }
     }
 
     void Shoot()

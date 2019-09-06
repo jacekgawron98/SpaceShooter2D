@@ -181,4 +181,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1260106947259253035, guid: 1246e39a932f6384bb3785c83e205bad, type: 3}
-  MaxReloadTime: 1
+  MaxReloadTime: 0.5
+  AutoShooting: 0
