@@ -30,7 +30,6 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("LEVEL: " + ApplicationManager.selectedLevel);
         SelectLevel();
 
         StartCountdown = 5;
@@ -52,7 +51,7 @@ public class LevelController : MonoBehaviour
             if (StartCountdown < 1)
                 CountdownText.GetComponent<TextMeshProUGUI>().text = "GO!";
             else if (StartCountdown > 4)
-                CountdownText.GetComponent<TextMeshProUGUI>().text = "READY?";
+                CountdownText.GetComponent<TextMeshProUGUI>().text = "USE ARROW TO MOVE! READY?";
             else
                 CountdownText.GetComponent<TextMeshProUGUI>().text = ((int)StartCountdown).ToString();
 
@@ -85,7 +84,7 @@ public class LevelController : MonoBehaviour
 
     void SelectLevel()
     {
-        Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Levels/Level"+ApplicationManager.selectedLevel+".prefab", typeof(GameObject));
-        Instantiate(prefab);
+        Object levelPrefab = Resources.Load("levels/level" + ApplicationManager.selectedLevel);
+        Instantiate(levelPrefab);
     }
 }
