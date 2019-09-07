@@ -7,6 +7,8 @@ public class PlayerShooting : MonoBehaviour
 
     public GameObject Bullet;
     public GameObject SpecialBullet;
+    public AudioClip ShootSound;
+    private AudioSource audioSource;
 
     public int NumberOfBullets;
     public float SpecialBulletTimeRemaining;
@@ -20,6 +22,8 @@ public class PlayerShooting : MonoBehaviour
         SpecialBulletTimeRemaining = 0;
         NumberOfBullets = Mathf.Clamp(NumberOfBullets, 1, 5);
         ReloadTimeRemaining = 0;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -60,6 +64,7 @@ public class PlayerShooting : MonoBehaviour
             {
                 bullet.Shoot(new Vector2(0, 1));
             }
+            audioSource.PlayOneShot(ShootSound, 0.5f);
 
             ReloadTimeRemaining = MaxReloadTime;
         }
@@ -74,7 +79,9 @@ public class PlayerShooting : MonoBehaviour
             Vector2 bulletPos = new Vector2(transform.position.x, transform.position.y + 0.1f);
             GameObject bulletObject = Instantiate(SpecialBullet, transform.position, Quaternion.identity);
             Bullet bulletController = bulletObject.GetComponent<Bullet>();
+
             bulletController.Shoot(new Vector2(0, 1));
+            audioSource.PlayOneShot(ShootSound);
             ReloadTimeRemaining = 0.1f;
         }
         if (ReloadTimeRemaining > 0)

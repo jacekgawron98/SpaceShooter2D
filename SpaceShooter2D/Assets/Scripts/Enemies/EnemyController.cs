@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(AudioSource))]
 public class EnemyController : MonoBehaviour
 {
     
@@ -28,6 +30,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (HealthPoints <= 0)
         {
             LevelController.EnemiesOnScreen--;

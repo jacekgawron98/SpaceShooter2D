@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AutoEnemyMovement : MonoBehaviour
 {
-    public float MovementSpeed;
+    private float MovementSpeed;
     // Start is called before the first frame update
     void Start()
     {
-     
+        MovementSpeed = GetComponent<EnemyController>().MovementSpeed;
     }
 
     // Update is called once per frame
