@@ -26,7 +26,7 @@ public class RandomEnemiesWave : MonoBehaviour
             if (respawnTimeRemaining <= 0)
             {
                 float x = Random.Range(0 - screenBounds.x, 0 + screenBounds.x);
-                Vector2 position = new Vector2(x, 1.2f);
+                Vector2 position = new Vector2(x, screenBounds.y+0.1f);
                 int enemyType = Random.Range(0, Enemy.Count);
                 Instantiate(Enemy[enemyType], position, Quaternion.identity);
 

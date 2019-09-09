@@ -483,9 +483,9 @@ RectTransform:
   m_Father: {fileID: 1786690278}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 285, y: -375}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -74.99997, y: 75}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84119304
@@ -783,8 +783,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300049591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0033, y: -0.0025, z: 0.228}
-  m_LocalScale: {x: 1.6121843, y: 2.015, z: 1}
+  m_LocalPosition: {x: -0.0033, y: -0.00565, z: 0.228}
+  m_LocalScale: {x: 1.6121843, y: 2.853973, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -836,7 +836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.51478124}
-  m_AnchoredPosition: {x: 1.4, y: 45.5}
+  m_AnchoredPosition: {x: -0.000015736, y: 49}
   m_SizeDelta: {x: 390.4, y: 126.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &317679812
@@ -1152,9 +1152,9 @@ RectTransform:
   m_Father: {fileID: 1786690278}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -285, y: -375}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 74.319, y: 74.078}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410736946
@@ -1229,10 +1229,10 @@ RectTransform:
   m_Father: {fileID: 1786690278}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -311.7, y: -631.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_SizeDelta: {x: 464.8, y: 278.59998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541270317
 MonoBehaviour:
@@ -1325,7 +1325,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 1.4204437
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1350,7 +1350,7 @@ Transform:
   m_GameObject: {fileID: 548944527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1503,7 +1503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: -75}
+  m_AnchoredPosition: {x: 95, y: -57.45}
   m_SizeDelta: {x: 160, y: 86.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1261934792
@@ -1714,7 +1714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -96, y: -75}
+  m_AnchoredPosition: {x: -96, y: -57.44998}
   m_SizeDelta: {x: 163.5, y: 86.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731530260
@@ -1870,12 +1870,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.067
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2307,6 +2307,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8140211640595441507, guid: 9a3725c780fe85a4aa9f738231e8845a,
+        type: 3}
+      propertyPath: DestroySound
+      value: 
+      objectReference: {fileID: 8300000, guid: fb849418420aa63468c589c100cb3c01, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a3725c780fe85a4aa9f738231e8845a, type: 3}
 --- !u!1 &2069938670

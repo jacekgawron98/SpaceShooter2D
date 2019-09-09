@@ -30,7 +30,7 @@ public class EnemiesMovement : MonoBehaviour
         Debug.Log(currentWaypoint);
         if (currentWaypoint < waypointsList.Count)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypointsList[currentWaypoint].transform.position, Time.deltaTime * MovementSpeed);
+            transform.position = Vector2.MoveTowards(transform.position, waypointsList[currentWaypoint].transform.position, Time.deltaTime);
             if (Vector2.Distance(waypointsList[currentWaypoint].transform.position, transform.position) < 0.01f)
             {
                 currentWaypoint++;

@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 4590026865501901419, guid: fecd43e0ee3f60b4eb909215534f5eb7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.581
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4590026865501901419, guid: fecd43e0ee3f60b4eb909215534f5eb7,
         type: 3}
@@ -98,6 +98,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1623053441081330200, guid: fecd43e0ee3f60b4eb909215534f5eb7,
+        type: 3}
+      propertyPath: MaxReloadTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5473065126221116209, guid: fecd43e0ee3f60b4eb909215534f5eb7,
         type: 3}
       propertyPath: MaxHealth
@@ -107,11 +112,6 @@ PrefabInstance:
         type: 3}
       propertyPath: MovementSpeed
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1623053441081330200, guid: fecd43e0ee3f60b4eb909215534f5eb7,
-        type: 3}
-      propertyPath: MaxReloadTime
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fecd43e0ee3f60b4eb909215534f5eb7, type: 3}

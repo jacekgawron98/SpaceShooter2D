@@ -51,7 +51,7 @@ public class LevelController : MonoBehaviour
             if (StartCountdown < 1)
                 CountdownText.GetComponent<TextMeshProUGUI>().text = "GO!";
             else if (StartCountdown > 4)
-                CountdownText.GetComponent<TextMeshProUGUI>().text = "USE ARROW TO MOVE! READY?";
+                CountdownText.GetComponent<TextMeshProUGUI>().text = "READY?";
             else
                 CountdownText.GetComponent<TextMeshProUGUI>().text = ((int)StartCountdown).ToString();
 

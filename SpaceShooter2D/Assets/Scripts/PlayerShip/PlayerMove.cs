@@ -17,15 +17,15 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        float horizontalMove = Input.GetAxis("Horizontal");
-        float verticalMove = Input.GetAxis("Vertical");
-
-        Vector2 shipPosition = rBody.position;
-        Vector2 move = new Vector2(horizontalMove,verticalMove);
-
-        shipPosition += MovementSpeed * move * Time.deltaTime;
-
-        rBody.MovePosition(shipPosition);    
+        if(Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if(touch.phase == TouchPhase.Moved)
+            {
+                Vector3 position = Camera.main.ScreenToWorldPoint(touch.position);
+                position.z = 0;
+                transform.position = Vector2.MoveTowards(transform.position,position,MovementSpeed * Time.deltaTime);
+            }
+        }
     }
 }
